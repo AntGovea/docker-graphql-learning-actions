@@ -24,7 +24,8 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
         echo "Iniciando login"
-        docker login -u DOCKER_USER -p DOCKER_PASSWORD
+        $DockerPassword=DOCKER_PASSWORD
+        echo DockerPassword | docker login --username DOCKER_USER -password-stdin 
         echo "Fin del login"
         
         
