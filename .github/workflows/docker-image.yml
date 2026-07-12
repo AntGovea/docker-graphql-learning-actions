@@ -41,13 +41,13 @@ jobs:
       env:  
         NEW_VERSION: ${{steps.version.outputs.version}}
       run: | 
-        docker build -t antgovea/docker-graphql:NEW_VERSION .
+        docker build -t antgovea/docker-graphql:$NEW_VERSION .
         docker build -t antgovea/docker-graphql:latest .
 
     - name: Push Docker Image
       env:  
         NEW_VERSION: ${{steps.version.outputs.version}}
       run: |
-         docker push  antgovea/docker-graphql:NEW_VERSION
+         docker push  antgovea/docker-graphql:$NEW_VERSION
          docker push antgovea/docker-graphql:latest
         
